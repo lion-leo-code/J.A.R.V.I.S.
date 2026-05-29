@@ -1,0 +1,94 @@
+======================================================================
+  JARVIS SYSTEM CAPABILITIES REPORT
+  Platform : Windows / Python 3.11.9
+  LLM      : Ollama — llama3.2
+  Generated: 2026-04-12 19:51
+======================================================================
+
+─── SECTION 1: CURRENT CAPABILITIES ──────────────────────────────
+
+  ALWAYS AVAILABLE (no LLM needed):
+    ✓ Open / close applications
+    ✓ File system: read, write, copy, move, delete
+    ✓ Directory: create, list, navigate
+    ✓ Shell command execution (with safety confirmation)
+    ✓ Web search (DuckDuckGo, no key needed)
+    ✓ System info: CPU, RAM, disk, battery
+    ✓ Screenshot capture
+    ✓ Email via Gmail SMTP (credentials configured ✓)
+    ✓ Global hotkey activation (Ctrl+Space)
+    ✓ Full-screen HUD overlay with live system stats
+    ✓ Command history (SQLite)
+    ✓ System tray icon
+
+  AI-POWERED (requires Ollama):
+    ✓ Natural language understanding
+    ✓ Multi-step autonomous task planning
+    ✓ Contextual conversation memory
+    ✓ Incomplete command detection and follow-up
+
+  OPTIONAL HARDWARE/SERVICES:
+    ✓ Voice input  (pip install SpeechRecognition pyaudio)
+    ✓ System monitor (pip install psutil)
+    ✓ GPU stats  (pip install GPUtil)
+    ✓ Serial ports (pip install pyserial)
+    ✓ Bluetooth devices (pip install bleak)
+
+─── SECTION 2: MISSING / NOT CONFIGURED ──────────────────────────
+
+  CALENDAR: Not configured.
+    Requires Google Calendar API OAuth2 credentials.
+    Steps: console.cloud.google.com → create project → enable Calendar API
+           → create OAuth2 credentials → download credentials.json
+           pip install google-auth-oauthlib google-api-python-client
+
+  BROWSER AUTOMATION: Not installed.
+    pip install playwright && playwright install chromium
+
+  BETTER WEB SEARCH: SerpAPI key not configured.
+    Sign up at serpapi.com → add key to config.json → web_search.serpapi_key
+
+─── SECTION 3: SETUP STEPS ────────────────────────────────────────
+
+  1. Install Ollama (local LLM, completely free):
+       macOS/Linux: curl -fsSL https://ollama.com/install.sh | sh
+       Windows    : https://ollama.com/download
+     Pull model  : ollama pull llama3.2
+
+  2. Core Python dependencies:
+       pip install PyQt6 keyboard psutil
+
+  3. Voice input:
+       pip install SpeechRecognition pyaudio
+       (Windows: pyaudio may need: pip install pipwin && pipwin install pyaudio)
+
+  4. Gmail App Password (already configured):
+       If auth fails: myaccount.google.com → Security → 2-Step → App passwords
+       Create password for 'Mail' → paste into config.json → email.app_password
+
+─── SECTION 4: NEAR-AGI ROADMAP ───────────────────────────────────
+
+  Current level: Reactive assistant (explicit commands only)
+
+  Level 2 — Proactive:
+    Monitor system events, suggest actions, schedule reminders
+
+  Level 3 — Persistent autonomy:
+    Background agents, cron-style tasks, watchdog processes
+
+  Level 4 — Multi-agent:
+    Specialized sub-agents (research, coding, email, calendar)
+    Agent-to-agent communication and delegation
+
+  Level 5 — AGI:
+    Requires: upgrade llama3.2 → larger model (70B+)
+    Continuous learning, world model, real-time sensor fusion
+
+  Current gaps:
+    Reasoning : Single-pass LLM (llama3.2), no chain-of-thought loop
+    Context   : Bounded by model context window
+    Learning  : Static weights — no online training
+    Execution : Sequential steps only — no parallel agents
+    Grounding : No real-world sensors (camera, GPS, etc.)
+
+======================================================================
